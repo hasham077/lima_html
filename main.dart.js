@@ -107562,7 +107562,7 @@ i=A.m(A.yg(A.L(new A.K(h,new A.aPH(q),g),!0,g.i("ac.E")),8,8),p,i)
 g=A.i_()
 h=A.a0(A.a([new A.d_(1,B.aI,new A.aO(new A.aPI(q),p),p),new A.fi(p),new A.fi(p)],n),B.i,B.f,B.h)
 s=A.m(p,20,p)
-r=q.a.c.gh().a==null?A.f9("Create")+" "+A.ia(B.b.gaC(q.a.c.gh().r.N().split("."))):A.f9("Save Changes")
+r=q.a.c.gh().a==null?A.f9("Create")+" "+A.ia(B.b.gaC(q.a.c.gh().r.N().split("."))):A.f9("Save")
 return A.fh(o,p,A.hb(A.ll(p,A.ew(A.O(A.a([m,l,k,j,new A.aO(new A.aPJ(q),p),i,new A.a8(new A.E(0,16,0,16),g,p),h,s,A.hG(r,p,p,p,40,new A.aPK(q),p,p,!0,p)],n),B.i,B.f,B.L),p,B.A,p,p,!1,B.Q),q.d),15),p,p,p,p)},
 a7l(a){var s,r,q,p,o,n,m,l,k,j=null,i="3-07-2025",h="assets/svgs/calenderMonthSvg.svg",g={},f=a==null,e=f?j:a.c
 g.a=e
@@ -108840,7 +108840,7 @@ i=A.m(A.yg(A.L(new A.K(h,new A.al9(f),g),!0,g.i("ac.E")),8,8),e,i)
 g=A.i_()
 l=A.a3("Projects",B.j,A.B(l,0,0,0),e,e,e,e,e,e,e,B.J)
 h=A.m(e,16,e)
-d=d.gh().a==null?A.f9("Create"):"Save Changes"
+d=d.gh().a==null?A.f9("Create"):"Save"
 A.fz(e,e,"createTask",e,e,!0,A.ll(e,A.O(A.a([p,m,s,r,k,j,i,new A.a8(new A.E(0,16,0,16),g,e),l,h,A.a0(A.a([new A.aO(new A.ala(f),e),new A.fi(e),A.hG(d,e,e,e,45,new A.alb(f,n,a),e,e,!1,133)],q),B.i,B.f,B.h)],q),B.w,B.f,B.h),n))},
 AQ(a){var s=this,r=null
 switch(a.a){case 0:A.bdE(s.x)
