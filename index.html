@@ -33,6 +33,29 @@
 
   <title>Lima</title>
   <link rel="manifest" href="manifest.json">
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDguX_cfB2yrIlgHF0xsdrmV6SPZuc8Mzw",
+    authDomain: "lima-life-manager-a3687.firebaseapp.com",
+    projectId: "lima-life-manager-a3687",
+    storageBucket: "lima-life-manager-a3687.firebasestorage.app",
+    messagingSenderId: "216188664780",
+    appId: "1:216188664780:web:0e17c856e6cba02a5ebb69",
+    measurementId: "G-447QNEZLD9"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </head>
 <body>
   <script type="text/javascript">
@@ -46,5 +69,6 @@
   })();
 </script>
   <script src="flutter_bootstrap.js" async></script>
+  
 </body>
 </html>
