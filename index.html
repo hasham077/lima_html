@@ -14,10 +14,8 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="/">
-  <!-- FOR PRODUCTION: Uncomment the line below and comment the line above -->
-  <!-- <base href="/lima_html/"> -->
-  <!-- <base href="https://hasham077.github.io/lima_html/"> -->
+  <!-- Base href will be set during build with --base-href flag -->
+  <base href="/lima_html/">
   <meta name="google-signin-client_id" content="216029296314-4q0tfnj4v561bhalc5k0mp3bv3j6427r.apps.googleusercontent.com">
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -79,8 +77,19 @@
 <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
-            // This registers the Service Worker at the root scope
-            navigator.serviceWorker.register('/firebase-messaging-sw.js')
+            // Get the base path from the base tag
+            const base = document.querySelector('base');
+            const basePath = base ? base.getAttribute('href') : '/';
+
+            // Construct the service worker path relative to base
+            const swPath = basePath + 'firebase-messaging-sw.js';
+
+            console.log('Registering FCM Service Worker at:', swPath);
+
+            // Register the Service Worker with the correct scope
+            navigator.serviceWorker.register(swPath, {
+                scope: basePath
+            })
                 .then((registration) => {
                     console.log('FCM Service Worker registered:', registration);
                 })
