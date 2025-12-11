@@ -14,8 +14,9 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <!-- <base href="/"> -->
-  <base href="/lima_html/">
+  <base href="/">
+  <!-- FOR PRODUCTION: Uncomment the line below and comment the line above -->
+  <!-- <base href="/lima_html/"> -->
   <!-- <base href="https://hasham077.github.io/lima_html/"> -->
   <meta name="google-signin-client_id" content="216029296314-4q0tfnj4v561bhalc5k0mp3bv3j6427r.apps.googleusercontent.com">
   <meta charset="UTF-8">
@@ -62,8 +63,9 @@
     apiKey: "AIzaSyDguX_cfB2yrIlgHF0xsdrmV6SPZuc8Mzw",
     authDomain: "lima-life-manager-a3687.firebaseapp.com",
     projectId: "lima-life-manager-a3687",
-    
-    storageBucket: "lima-life-manager-a3687.firebasestorage.app",
+    storageBucket: "lima-life-manager-a3687.appspot.com",
+    storageBucket: "lima-life-manager-a3687.appspot.com",
+    // storageBucket: "lima-life-manager-a3687.firebasestorage.app",
     messagingSenderId: "216188664780",
     appId: "1:216188664780:web:0e17c856e6cba02a5ebb69",
     // 1:216188664780:android:74d0757af0abc1985ebb69
@@ -74,6 +76,19 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
-  
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            // This registers the Service Worker at the root scope
+            navigator.serviceWorker.register('/firebase-messaging-sw.js')
+                .then((registration) => {
+                    console.log('FCM Service Worker registered:', registration);
+                })
+                .catch((error) => {
+                    console.error('FCM Service Worker registration failed:', error);
+                });
+        });
+    }
+</script>
 </body>
 </html>
