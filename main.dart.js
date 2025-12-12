@@ -125431,10 +125431,8 @@ $.dg().sj(0,!0)
 m=A.k(t.N,t.z)
 k=a.b
 if(k!=null)J.e6(m,"name",k)
-k=a.c
-if(k!=null)J.e6(m,"is_favorite",k)
-k=a.d
-if(k!=null)J.e6(m,"parent_project",k)
+J.e6(m,"is_favorite",a.c===!0)
+J.e6(m,"parent_project",a.d)
 h=A
 s=7
 return A.w(A.f1(!0,m,"/projects/"+A.l(a.a)+"/",!0),$async$pM)
@@ -128809,7 +128807,7 @@ $0(){var s,r,q=null
 if(this.b)return
 s=$.ea()
 r=this.a.c
-s.pM(new A.dC(r.a,q,r.c!==!0,q,q,q,q),!1)},
+s.pM(new A.dC(r.a,q,r.c!==!0,r.d,q,q,q),!1)},
 $S:1}
 A.aVc.prototype={
 $2(a,b){return A.bHs(this.a.c.r[b])},
@@ -128879,15 +128877,16 @@ $0(){new A.nn(A.df(null),A.c3(!1)).Xi()},
 $S:1}
 A.blC.prototype={
 $2(a,b){return this.apt(a,b)},
-apt(a,b){var s=0,r=A.u(t.y),q,p,o
+apt(a,b){var s=0,r=A.u(t.y),q,p,o,n
 var $async$$2=A.p(function(c,d){if(c===1)return A.q(d,r)
-for(;;)switch(s){case 0:o=b==null
-A.bd("Parent id is "+A.l(o?null:b.b),"")
+for(;;)switch(s){case 0:n=b==null
+A.bd("Parent id is "+A.l(n?null:b.b),"")
 A.bd("Child id is "+A.l(a.b),"")
 p=$.ea()
-o=o?null:b.a
+o=n?null:b.c
+n=n?null:b.a
 s=3
-return A.w(p.pM(new A.dC(a.a,null,null,o,null,null,null),!1),$async$$2)
+return A.w(p.pM(new A.dC(a.a,null,o===!0,n,null,null,null),!1),$async$$2)
 case 3:q=d
 s=1
 break
@@ -131383,7 +131382,7 @@ q===$&&A.c()
 if(q)return
 q=$.ea()
 r=r.c
-q.pM(new A.dC(r.a,s,r.c!==!0,s,s,s,s),!1)},
+q.pM(new A.dC(r.a,s,r.c!==!0,r.d,s,s,s),!1)},
 $S:1}
 A.aVu.prototype={
 $0(){},
@@ -131409,7 +131408,7 @@ q===$&&A.c()
 if(q)return
 q=$.ea()
 r=r.c
-q.pM(new A.dC(r.a,s,r.c!==!0,s,s,s,s),!1)},
+q.pM(new A.dC(r.a,s,r.c!==!0,r.d,s,s,s),!1)},
 $S:1}
 A.LH.prototype={
 B(a){var s=null,r=A.an(a,s,t.w).w.a.a>=991,q=r?280:s,p=r?B.p:s,o=r?s:A.lQ(s,!0,0,s,s,"AI Coach Assistant",s),n=A.n(s,25,s),m=A.V("Briefing",B.j,s,s,s,s,s,s,s,B.E),l=A.n(s,5,s),k=$.fy()
