@@ -78,19 +78,8 @@
 <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
-            // Get the base path from the base tag
-            const base = document.querySelector('base');
-            const basePath = base ? base.getAttribute('href') : '/';
-
-            // Construct the service worker path relative to base
-            const swPath = basePath + 'firebase-messaging-sw.js';
-
-            console.log('Registering FCM Service Worker at:', swPath);
-
-            // Register the Service Worker with the correct scope
-            navigator.serviceWorker.register(swPath, {
-                scope: basePath
-            })
+            // This registers the Service Worker at the root scope
+            navigator.serviceWorker.register('/firebase-messaging-sw.js')
                 .then((registration) => {
                     console.log('FCM Service Worker registered:', registration);
                 })
