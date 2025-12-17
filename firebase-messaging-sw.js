@@ -113,7 +113,7 @@ firebase.initializeApp({
   apiKey: "AIzaSyDguX_cfB2yrIlgHF0xsdrmV6SPZuc8Mzw",
   authDomain: "lima-life-manager-a3687.firebaseapp.com",
   projectId: "lima-life-manager-a3687",
-  storageBucket: "lima-life-manager-a3687.appspot.com",
+  storageBucket: "lima-life-manager-a3687.firebasestorage.app",  // ✅ FIXED
   messagingSenderId: "216188664780",
   appId: "1:216188664780:web:0e17c856e6cba02a5ebb69",
   measurementId: "G-447QNEZLD9"
@@ -121,7 +121,6 @@ firebase.initializeApp({
 
 console.log('[firebase-messaging-sw.js] Firebase initialized');
 
-// Get messaging instance
 const messaging = firebase.messaging();
 
 // Background message handler
@@ -131,7 +130,7 @@ messaging.onBackgroundMessage((payload) => {
   const title = payload.notification?.title || payload.data?.title || 'New Notification';
   const options = {
     body: payload.notification?.body || payload.data?.body || '',
-    icon: payload.notification?.icon || '/icons/Icon-192.png',
+    icon: '/icons/Icon-192.png',
     badge: '/icons/Icon-192.png',
     data: payload.data || {}
   };
@@ -139,29 +138,9 @@ messaging.onBackgroundMessage((payload) => {
   return self.registration.showNotification(title, options);
 });
 
-// Fallback push listener
-self.addEventListener('push', (event) => {
-  console.log('[firebase-messaging-sw.js] Push event:', event);
-
-  if (!event.data) return;
-
-  const payload = event.data.json();
-  console.log('[firebase-messaging-sw.js] Push payload:', payload);
-
-  const title = payload.notification?.title || payload.data?.title || 'New Notification';
-  const options = {
-    body: payload.notification?.body || payload.data?.body || '',
-    icon: payload.notification?.icon || '/icons/Icon-192.png',
-    data: payload.data || {}
-  };
-
-  event.waitUntil(
-    self.registration.showNotification(title, options)
-  );
-});
-
-// Notification click
-self.addEventListener('notificationclick', function (event) {
+// Notification click handler
+self.addEventListener('notificationclick', function(event) {
+  console.log('[firebase-messaging-sw.js] Notification clicked');
   event.notification.close();
 
   event.waitUntil(
@@ -173,4 +152,15 @@ self.addEventListener('notificationclick', function (event) {
         if (clients.openWindow) return clients.openWindow('/');
       })
   );
+});
+
+// Service Worker lifecycle
+self.addEventListener('install', (event) => {
+  console.log('[firebase-messaging-sw.js] Installing...');
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  console.log('[firebase-messaging-sw.js] Activated');
+  event.waitUntil(clients.claim());
 });

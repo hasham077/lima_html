@@ -1,22 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+  <!-- This is for local testing: -->
+   <!-- <base href="/"> -->
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <!-- <base href="/"> -->
+    <!-- For Development Mode Uncomment this <base href="/lima_html/">-->
   <base href="/lima_html/">
-  <!-- <base href="https://hasham077.github.io/lima_html/"> -->
   <meta name="google-signin-client_id" content="216188664780-3lc4k5kt76augberhgvj5tgc9hbh3pos.apps.googleusercontent.com">
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -28,52 +17,54 @@
   <meta name="apple-mobile-web-app-title" content="Lima">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-  <meta name="google-signin-client_id" content="216188664780-3lc4k5kt76augberhgvj5tgc9hbh3pos.apps.googleusercontent.com">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <title>Lima</title>
   <link rel="manifest" href="manifest.json">
- 
-</head>
-<body>
-  <script type="text/javascript">
-  (function() {
-    const params = new URLSearchParams(window.location.search);
-    const redirect = params.get('redirect');
-    if (redirect) {
-      const newUrl = window.location.origin + redirect;
-      window.history.replaceState({}, '', newUrl);
-    }
-  })();
-</script>
-  <script src="flutter_bootstrap.js" async></script>
 
-   <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  <!-- Firebase Scripts - USE COMPAT VERSION -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-messaging-compat.js"></script>
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  <script>
   const firebaseConfig = {
     apiKey: "AIzaSyDguX_cfB2yrIlgHF0xsdrmV6SPZuc8Mzw",
     authDomain: "lima-life-manager-a3687.firebaseapp.com",
     projectId: "lima-life-manager-a3687",
-    
     storageBucket: "lima-life-manager-a3687.firebasestorage.app",
     messagingSenderId: "216188664780",
     appId: "1:216188664780:web:0e17c856e6cba02a5ebb69",
-    // 1:216188664780:android:74d0757af0abc1985ebb69
     measurementId: "G-447QNEZLD9"
   };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  // Register Service Worker with correct path
+  if ('serviceWorker' in navigator) {
+    // Use absolute path
+    navigator.serviceWorker.register('/firebase-messaging-sw.js')
+      .then((registration) => {
+        console.log('Service Worker registered:', registration.scope);
+      })
+      .catch((error) => {
+        console.error('Service Worker registration failed:', error);
+      });
+  }
 </script>
-  
+</head>
+<body>
+  <script type="text/javascript">
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const redirect = params.get('redirect');
+      if (redirect) {
+        const newUrl = window.location.origin + redirect;
+        window.history.replaceState({}, '', newUrl);
+      }
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
