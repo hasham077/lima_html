@@ -2,7 +2,7 @@
 $__dart_deferred_initializers__.current=function(a,b,c,$){var B,A={
 c93(d,e,f){var y,x,w=null,v=new B.hC(),u=new B.hC()
 u=new A.a7N(v,u)
-u.mZ(d,w,e,w)
+u.n_(d,w,e,w)
 y=u.a
 x=v.r
 x.toString
@@ -40,7 +40,7 @@ A.a7N.prototype={
 h(d,e){var y=this.d.hK(e)
 return y==null?this.a.hK(e):y},
 glX(d){return"Recherche"},
-gmW(){return"Teinte de peau"},
+gmX(){return"Teinte de peau"},
 glT(){return this.d}}
 A.alE.prototype={}
 var z=a.updateTypes([])
@@ -52,4 +52,4 @@ x(A.a7N,A.alE)
 x(A.bFc,B.jy)
 y(A.alE,B.fP)})()
 B.tH(b.typeUniverse,JSON.parse('{"a7N":{"ee":[],"fP":["fr","ee"]}}'))};
-(a=>{a["PVwagGo4qZ7T5iMdjp6yrqFWSLU="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["jyVBaLpHrh45b+ykatykr5g0eF4="]=a.current})($__dart_deferred_initializers__);
