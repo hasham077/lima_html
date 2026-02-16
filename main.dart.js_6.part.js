@@ -1,15 +1,15 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var B,A={
-ccE(d,e,f){var y,x,w=null,v=new B.hD(),u=new B.hD()
-u=new A.a8f(v,u)
+ccM(d,e,f){var y,x,w=null,v=new B.hF(),u=new B.hF()
+u=new A.a8h(v,u)
 u.n_(d,w,e,w)
 y=u.a
 x=v.r
 x.toString
 y.r=x
-v.r=A.cmd(u)
+v.r=A.cml(u)
 return u},
-cm2(d,e){var y
+cma(d,e){var y
 $label0$0:{if("search"===e){y="Cerca"
 break $label0$0}if("search_no_results_1"===e){y="Oh no!"
 break $label0$0}if("search_no_results_2"===e){y="Quell'emoji non \xe8 stata trovata"
@@ -29,27 +29,27 @@ break $label0$0}if("categories.symbols"===e){y="Simboli"
 break $label0$0}if("skin_tone"===e){y="Tonalit\xe0 della pelle"
 break $label0$0}y=null
 break $label0$0}return y},
-cmd(d){return new A.bID(d)},
-a8f:function a8f(d,e){this.d=d
+cml(d){return new A.bIL(d)},
+a8h:function a8h(d,e){this.d=d
 this.a=e},
-bID:function bID(d){this.a=d},
+bIL:function bIL(d){this.a=d},
 amk:function amk(){}}
 B=c[0]
 A=a.updateHolder(c[7],A)
-A.a8f.prototype={
+A.a8h.prototype={
 h(d,e){var y=this.d.hL(e)
 return y==null?this.a.hL(e):y},
-gm_(d){return"Cerca"},
+gm0(d){return"Cerca"},
 gmW(){return"Tonalit\xe0 della pelle"},
-glW(){return this.d}}
+glX(){return this.d}}
 A.amk.prototype={}
 var z=a.updateTypes([])
-A.bID.prototype={
-$1(d){return A.cm2(this.a,d)},
+A.bIL.prototype={
+$1(d){return A.cma(this.a,d)},
 $S:46};(function inheritance(){var y=a.mixin,x=a.inherit
 x(A.amk,B.el)
-x(A.a8f,A.amk)
-x(A.bID,B.jF)
+x(A.a8h,A.amk)
+x(A.bIL,B.jG)
 y(A.amk,B.fY)})()
-B.tP(b.typeUniverse,JSON.parse('{"a8f":{"el":[],"fY":["fB","el"]}}'))};
-(a=>{a["Z5LGlDHUh9hxMTyVOUIS7VAEpfQ="]=a.current})($__dart_deferred_initializers__);
+B.tP(b.typeUniverse,JSON.parse('{"a8h":{"el":[],"fY":["fB","el"]}}'))};
+(a=>{a["WPasD80c4gVc89her+PjwunMZyU="]=a.current})($__dart_deferred_initializers__);
