@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!-- This is for local testing: -->
-   <!-- <base href="/"> -->
+  <!-- <base href="/"> -->
 
-    <!-- For Development Mode Uncomment this <base href="/lima_html/">-->
+  <!-- For Development Mode Uncomment this <base href="/lima_html/">-->
   <base href="/lima_html/">
-  <meta name="google-signin-client_id" content="216188664780-3lc4k5kt76augberhgvj5tgc9hbh3pos.apps.googleusercontent.com">
+  <meta name="google-signin-client_id"
+    content="216188664780-3lc4k5kt76augberhgvj5tgc9hbh3pos.apps.googleusercontent.com">
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Lima">
@@ -16,8 +18,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Lima">
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <title>Lima</title>
   <link rel="manifest" href="manifest.json">
@@ -28,35 +30,38 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-messaging-compat.js"></script>
 
   <script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyDguX_cfB2yrIlgHF0xsdrmV6SPZuc8Mzw",
-    authDomain: "lima-life-manager-a3687.firebaseapp.com",
-    projectId: "lima-life-manager-a3687",
-    storageBucket: "lima-life-manager-a3687.firebasestorage.app",
-    messagingSenderId: "216188664780",
-    appId: "1:216188664780:web:0e17c856e6cba02a5ebb69",
-    measurementId: "G-447QNEZLD9"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyDguX_cfB2yrIlgHF0xsdrmV6SPZuc8Mzw",
+      authDomain: "lima-life-manager-a3687.firebaseapp.com",
+      projectId: "lima-life-manager-a3687",
+      storageBucket: "lima-life-manager-a3687.firebasestorage.app",
+      messagingSenderId: "216188664780",
+      appId: "1:216188664780:web:0e17c856e6cba02a5ebb69",
+      measurementId: "G-447QNEZLD9"
+    };
 
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
 
-  // Register Service Worker with correct path
-  if ('serviceWorker' in navigator) {
-    // Use absolute path
-    navigator.serviceWorker.register('/firebase-messaging-sw.js')
-      .then((registration) => {
-        console.log('Service Worker registered:', registration.scope);
-      })
-      .catch((error) => {
-        console.error('Service Worker registration failed:', error);
-      });
-  }
-</script>
+    // Register Service Worker with correct path
+    if ('serviceWorker' in navigator) {
+      // Resolve path relative to base href so it works under /lima_html/ or /
+      const baseHref = document.querySelector('base')?.getAttribute('href') || '/';
+      const swUrl = baseHref + 'firebase-messaging-sw.js';
+      navigator.serviceWorker.register(swUrl)
+        .then((registration) => {
+          console.log('Service Worker registered:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    }
+  </script>
 </head>
+
 <body>
   <script type="text/javascript">
-    (function() {
+    (function () {
       const params = new URLSearchParams(window.location.search);
       const redirect = params.get('redirect');
       if (redirect) {
@@ -67,4 +72,5 @@
   </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
+
 </html>

@@ -127,11 +127,12 @@ const messaging = firebase.messaging();
 messaging.onBackgroundMessage((payload) => {
   console.log('[firebase-messaging-sw.js] Background message:', payload);
 
+  const swScope = self.registration.scope;
   const title = payload.notification?.title || payload.data?.title || 'New Notification';
   const options = {
     body: payload.notification?.body || payload.data?.body || '',
-    icon: '/icons/Icon-192.png',
-    badge: '/icons/Icon-192.png',
+    icon: swScope + 'icon-192.png',
+    badge: swScope + 'icon-192.png',
     data: payload.data || {}
   };
 
@@ -139,7 +140,7 @@ messaging.onBackgroundMessage((payload) => {
 });
 
 // Notification click handler
-self.addEventListener('notificationclick', function(event) {
+self.addEventListener('notificationclick', function (event) {
   console.log('[firebase-messaging-sw.js] Notification clicked');
   event.notification.close();
 
@@ -149,7 +150,7 @@ self.addEventListener('notificationclick', function(event) {
         for (const client of clientList) {
           if ('focus' in client) return client.focus();
         }
-        if (clients.openWindow) return clients.openWindow('/');
+        if (clients.openWindow) return clients.openWindow(self.registration.scope);
       })
   );
 });
