@@ -6,7 +6,7 @@
   <!-- <base href="/"> -->
 
   <!-- For Development Mode Uncomment this <base href="/lima_html/">-->
-  <base href="/lima_html/">
+  <base href="/">
   <meta name="google-signin-client_id"
     content="216188664780-3lc4k5kt76augberhgvj5tgc9hbh3pos.apps.googleusercontent.com">
   <meta charset="UTF-8">
@@ -24,6 +24,11 @@
   <title>Lima</title>
   <link rel="manifest" href="manifest.json">
 
+  <!-- Google Identity Services - MUST load SYNCHRONOUSLY before Flutter so
+       renderButton() has the GSI SDK available when widgets build.
+       Without this the button is invisible on all browsers (especially Safari). -->
+  <script src="https://accounts.google.com/gsi/client"></script>
+
   <!-- Firebase Scripts - USE COMPAT VERSION -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics-compat.js"></script>
@@ -32,7 +37,9 @@
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyDguX_cfB2yrIlgHF0xsdrmV6SPZuc8Mzw",
-      authDomain: "lima-life-manager-a3687.firebaseapp.com",
+      // Use web.app domain so Safari ITP doesn't block the OAuth redirect
+      // as a third-party cross-site request.
+      authDomain: "lima-life-manager-a3687.web.app",
       projectId: "lima-life-manager-a3687",
       storageBucket: "lima-life-manager-a3687.firebasestorage.app",
       messagingSenderId: "216188664780",
@@ -42,20 +49,6 @@
 
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-
-    // Register Service Worker with correct path
-    if ('serviceWorker' in navigator) {
-      // Resolve path relative to base href so it works under /lima_html/ or /
-      const baseHref = document.querySelector('base')?.getAttribute('href') || '/';
-      const swUrl = baseHref + 'firebase-messaging-sw.js';
-      navigator.serviceWorker.register(swUrl)
-        .then((registration) => {
-          console.log('Service Worker registered:', registration.scope);
-        })
-        .catch((error) => {
-          console.error('Service Worker registration failed:', error);
-        });
-    }
   </script>
 </head>
 
